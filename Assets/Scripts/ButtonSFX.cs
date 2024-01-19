@@ -1,24 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonSFX : MonoBehaviour
-{
-    private AudioSource buttonSFX;
+public class ButtonSfx : MonoBehaviour {
+    
+    // =================================================================================================================
+    // VARIABLES 
+    // =================================================================================================================
+    
+    private AudioSource _buttonSfx;
 
-    private void Start()
-    {
-        if (GetComponent<AudioSource>())
-        {
-            buttonSFX = GetComponent<AudioSource>();
-        }
-    }
+    // =================================================================================================================
+    // METHODS  
+    // =================================================================================================================
+    
+    // Get access to the audio source 
+    private void Start() { if (GetComponent<AudioSource>()) { _buttonSfx = GetComponent<AudioSource>(); } }
 
-    public void PlayButtonSFX()
-    {
-        if (GetComponent<AudioSource>())
-        {
-            buttonSFX.Play();
-        }
-    }
+    // Plays the audio source upon button click 
+    public void PlayButtonSfx() { if (GetComponent<AudioSource>()) { _buttonSfx.Play(); } }
 }

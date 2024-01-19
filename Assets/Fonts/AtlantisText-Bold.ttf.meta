@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 69703d90e0a0795498f774ec291c0366
+guid: 974b556a596fbbd43b45f86bcd388771
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Half Bold Pixel-7
+  - Atlantis Text
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

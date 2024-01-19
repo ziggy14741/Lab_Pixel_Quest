@@ -1,51 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
-    private PlayerStats _playerStats;
-    public float speed = 4;
-    private Rigidbody2D _rigidbody2D;
-    private Animator _animator;
+public class PlayerMovement : MonoBehaviour {
+    
+    // =================================================================================================================
+    // VARIABLES 
+    // =================================================================================================================
 
-    private void Start()
-    {
+    private PlayerStats _playerStats;            // Used to keep track of player lives and ability to move 
+    public float speed = 4;                      // Speed of the player 
+    private Rigidbody2D _rigidbody2D;            // Rigidbody that controls player's physics 
+    private SpriteRenderer _spriteRenderer;      // Used to flip the 2D image 
+    private Animator _animator;                  // Animator that controls player animation states 
+
+    // =================================================================================================================
+    // METHODS  
+    // =================================================================================================================
+
+    private void Start(){
         _playerStats = GetComponent<PlayerStats>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        if (GetComponent<Animator>() != null)
-        {
-            _animator = GetComponent<Animator>();
-        }
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (GetComponent<Animator>() != null) { _animator = GetComponent<Animator>();}
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(_playerStats.lives > 0 && !_playerStats.immoblie)
-        {
-            float xVelcoity = Input.GetAxis("Horizontal");
-            if (xVelcoity < 0)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-            else
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            _rigidbody2D.velocity = new Vector2(speed * xVelcoity, _rigidbody2D.velocity.y);
+    private void Update(){
+        // Checks if the player is able to move, if so check for player input 
+        if(_playerStats.lives > 0 && !_playerStats.immobile){
+
+            // Checks for player input A/Left Arrow to -1, D/Right Arrow for +1 and no keypress for 0 
+            float xVelocity = Input.GetAxis("Horizontal");
+
+            // If the player is moving left the sprite is flipped to face left, and vice versa 
+            _spriteRenderer.flipX = xVelocity >= 0;
+
+            // The xVelocity of the player is passed onto the rigidbody
+            _rigidbody2D.velocity = new Vector2(speed * xVelocity, _rigidbody2D.velocity.y);
         }
 
-        if (_rigidbody2D.velocity.x == 0 && _animator != null)
-        {
-            _animator.SetBool("isMoving", false);
-        }
-        else
-        {
-            _animator.SetBool("isMoving", true);
+        // If the animator has been attached switched states based on player input 
+        if (_animator != null) {
+            _animator.SetBool($"isMoving", _rigidbody2D.velocity.x != 0);
         }
     }
-
-
 }
 

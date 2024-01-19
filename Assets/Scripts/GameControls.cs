@@ -1,45 +1,39 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameControls : MonoBehaviour
-{
-
-    public string nextLevelName = "TestLevel";
-    public string currentLevelName = "TestLevel";
-    private GameObject _fadeObject;
+public class GameControls : MonoBehaviour {
+    
+    // =================================================================================================================
+    // VARIABLES 
+    // =================================================================================================================
+   
+    public string nextLevelName = "TestLevel";      // Name of the next level the player will go to
+    private GameObject _fadeObject;                 // Fade
     private Animator _animator;
 
-    private void Start()
-    {
-        if (GameObject.Find("Canvas"))
-        {
-            _fadeObject = GameObject.Find("Fade");
-            _fadeObject.SetActive(false);
-            _animator = _fadeObject.GetComponent<Animator>();
-        }
+    // =================================================================================================================
+    // METHODS  
+    // =================================================================================================================
+    private void Start() {
+        if (!GameObject.Find("Fade")) return;
+        _fadeObject = GameObject.Find("Fade");
+        _animator = _fadeObject.GetComponent<Animator>();
+        _fadeObject.SetActive(false);
     }
 
-    public void LoadNextLevel()
-    {
-        StartCoroutine(WaitForFade(nextLevelName));
-    }
+    // Used but UI button calls 
+    public void LoadNextLevel() { StartCoroutine(WaitForFade(nextLevelName)); }
+    public void ReloadLevel() { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+    public void LoadMenu() { StartCoroutine(WaitForFade("MenuLevel")); }
 
-    public void ReloadLevel()
-    {
-        StartCoroutine(WaitForFade(currentLevelName));
-    }
-
-    public void LoadMenu()
-    {
-        StartCoroutine(WaitForFade("MenuLevel"));
-    }
-
+    // Waits turns on the fade object, waits till screen gets dark and then loads the level 
     private IEnumerator WaitForFade(string levelName)
     {
-        _fadeObject.SetActive(true);
-        _animator.Play("FadeOut");
+        if (_fadeObject != null) {
+            _fadeObject.SetActive(true);
+            _animator.Play("FadeOut");   
+        }
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(levelName);
     }

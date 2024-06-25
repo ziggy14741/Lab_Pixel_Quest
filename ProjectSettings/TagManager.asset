@@ -4,14 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Water
   - Death
+  - Health
   - Coin
-  - CheckPoint
-  - PowerUp
-  - LevelGoal
-  - Life
-  - Enemy
-  - BouncePad
   layers:
   - Default
   - TransparentFX

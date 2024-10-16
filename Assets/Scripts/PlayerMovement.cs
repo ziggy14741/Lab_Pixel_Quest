@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public int xMul = 3;
-    Rigidbody2D rigidbody2D;
-    SpriteRenderer spriteRenderer;
+    public int xMul = 3;                        // Multiplies the player's input by the given speed.
+    private Rigidbody2D rigidbody2D;            // Controls the velocity of the player.
+    private SpriteRenderer spriteRenderer;      // Controls the image of the player.
+    private const string AxisX = "Horizontal";  // Keeps track of the string used for getting player input.
 
     // Start is called before the first frame update
+    // Connects the Rigidbody and SpriteRenderer to their respective components.
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -16,24 +18,21 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    // Moves player and flips 
+    // Updates the player state.
     void Update()
     {
-        // Gets player info 
-        float xVelocity = Input.GetAxis("Horizontal");
+        // Gets player input from A/D or Left Arrow/Right Arrow keys.
+        float xVelocity = Input.GetAxis(AxisX);
 
-        // Flips player 
-        if (xVelocity > 0)
-        {
+        // Flips the player sprite to face the direction of movement. 
+        if (xVelocity > 0){
             spriteRenderer.flipX = true;
         }
-        else
-        {
+        else{
             spriteRenderer.flipX = false; 
         }
 
-
-        // Save player info to rigid
+        // Saves player input to the Rigidbody and makes the player move at the given speed.
         rigidbody2D.velocity = new Vector2 (xMul * xVelocity, rigidbody2D.velocity.y);
 
     }

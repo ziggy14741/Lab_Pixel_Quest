@@ -51,7 +51,7 @@ public class PlayerStats : MonoBehaviour
                 }
             case respawnTag:
                 {
-                    respawnPoint.position = collision.transform.position;
+                    respawnPoint.position = collision.transform.Find("RespawnPoint").position;
                     break;
                 }
             case finishTag:

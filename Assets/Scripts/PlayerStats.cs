@@ -56,7 +56,8 @@ public class PlayerStats : MonoBehaviour
                 }
             case finishTag:
                 {
-                    SceneManager.LoadScene("Level_2");
+                    string nextLevel = collision.gameObject.GetComponent<GameEnd>().nextLevel;
+                    SceneManager.LoadScene(nextLevel);
                     break;
                 }
         }

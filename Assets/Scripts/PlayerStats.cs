@@ -24,7 +24,10 @@ public class PlayerStats : MonoBehaviour
 
     public TextMeshProUGUI coinText;
     public GameObject CoinParent;
-    private int maxCoins; 
+    private int maxCoins;
+
+    public AudioSource deathSFX;
+    public AudioSource coinSFX;
 
     void Start()
     {
@@ -38,6 +41,7 @@ public class PlayerStats : MonoBehaviour
         switch(collision.tag){
             case coinTag:
                 {
+                    coinSFX.Play();
                     currentCoins++;
                     coinText.text = currentCoins + "/" + maxCoins;
                     Destroy(collision.gameObject);
@@ -45,6 +49,7 @@ public class PlayerStats : MonoBehaviour
                 }
             case deathTag:
                 {
+                    deathSFX.Play();
                     rigidbody2D.velocity = Vector2.zero;
                     transform.position = respawnPoint.position;
                     playerLife--;

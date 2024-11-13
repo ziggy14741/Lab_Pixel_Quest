@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 3969261363486648858}
   - component: {fileID: 3117426988480730034}
   - component: {fileID: 179467656384846032}
+  - component: {fileID: 400081875108480214}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -271,6 +272,11 @@ MonoBehaviour:
   respawnPoint: {fileID: 0}
   playerLife: 3
   currentCoins: 0
+  heartImage: {fileID: 0}
+  coinText: {fileID: 0}
+  CoinParent: {fileID: 0}
+  deathSFX: {fileID: 0}
+  coinSFX: {fileID: 0}
 --- !u!95 &179467656384846032
 Animator:
   serializedVersion: 5
@@ -292,3 +298,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &400081875108480214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177227415980157264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d69ed762be727489cb55e861034ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

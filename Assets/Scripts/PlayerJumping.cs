@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerJumping : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
-    public float JumpForce = 4;
-    public Transform ground;
-    public LayerMask groundMask;
+    // Rigidbody
+    private Rigidbody2D rigidbody2D; // Controls the speed 
+    public float JumpForce = 4; // Controls how high the player jumps 
 
-    private bool waterCheck; 
+    // Checks
+    public Transform ground;     // Where the collision will be checked for 
+    public LayerMask groundMask; // The layer we're looking for 
+    private bool waterCheck;     // Is the player touching water 
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +41,7 @@ public class PlayerJumping : MonoBehaviour
         }
     }
 
+    // Checks if the player has left water, if so they can't jump 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Water")

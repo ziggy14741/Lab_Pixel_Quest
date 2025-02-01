@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuLevel.unity
     guid: 2fa55462fc719a848b33dd6097f67562
   - enabled: 1
-    path: Assets/Scenes/TestLevel.unity
+    path: Assets/Pixel_Quest/Scenes/TestLevel.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Level_2.unity

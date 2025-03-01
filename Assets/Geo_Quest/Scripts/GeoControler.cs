@@ -10,6 +10,7 @@ public class GeoControler : MonoBehaviour
     int var1 = 3;
     Rigidbody2D rb;
     public string nextlevel = "Scene_2";
+    
        float speed = 7;
     private void OnTriggerEnter2D(Collider2D collision)
      {
@@ -26,6 +27,9 @@ public class GeoControler : MonoBehaviour
                     SceneManager.LoadScene(nextlevel);
                     break;
         }
+           
+
+
      }
   
        
@@ -96,7 +100,6 @@ public class GeoControler : MonoBehaviour
         float xImput = Input.GetAxis("Horizontal");
        // Debug.Log(xImput);
         rb.velocity = new Vector2(xImput * speed, rb.velocity.y);
-        
     }
 
 

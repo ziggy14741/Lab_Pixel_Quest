@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Geo_Quest/Scenes/Scene_3.unity
     guid: 289f889b36eae954299b9a30534ad9b6
+  - enabled: 1
+    path: Assets/Geo_Quest/Scenes/You win!.unity
+    guid: 0c251b9efbc723b43ae3a844449805f7
+  - enabled: 1
+    path: Assets/Geo_Quest/Scenes/Secretlevel.unity
+    guid: a0b29ecc94320024a8b02c8f1299521b
+  - enabled: 1
+    path: Assets/Geo_Quest/Scenes/You Actually Win!.unity
+    guid: 7b283d7689060ab47abf55a35cde5da7
   m_configObjects: {}

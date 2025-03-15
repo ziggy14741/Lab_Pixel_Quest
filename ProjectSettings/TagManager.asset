@@ -8,6 +8,7 @@ TagManager:
   - Death
   - Health
   - Coin
+  - secret_level
   layers:
   - Default
   - TransparentFX

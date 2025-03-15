@@ -10,6 +10,7 @@ public class GeoControler : MonoBehaviour
     int var1 = 3;
     Rigidbody2D rb;
     public string nextlevel = "Scene_2";
+    public string Secretlevel = "Secretlevel";
     
        float speed = 7;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,11 +27,17 @@ public class GeoControler : MonoBehaviour
                 {
                     SceneManager.LoadScene(nextlevel);
                     break;
+                }
+           case "secret_level":
+                        {
+                    SceneManager.LoadScene(Secretlevel);
+                    break;
+                        }
         }
            
 
 
-     }
+    
   
        
         }

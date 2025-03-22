@@ -11,7 +11,7 @@ public class GeoControler : MonoBehaviour
     Rigidbody2D rb;
     public string nextlevel = "Scene_2";
     public string Secretlevel = "Secretlevel";
-    
+    private int coinCounter = 0;
        float speed = 7;
     private void OnTriggerEnter2D(Collider2D collision)
      {
@@ -33,6 +33,12 @@ public class GeoControler : MonoBehaviour
                     SceneManager.LoadScene(Secretlevel);
                     break;
                         }
+            case "Coin":
+                {
+                    coinCounter++;
+                    Destroy(collision.gameObject);
+                    break;
+                }
         }
            
 
